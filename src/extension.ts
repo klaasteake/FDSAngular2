@@ -2,6 +2,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import * as mkdirp from 'mkdirp';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -21,7 +22,28 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.window.showInformationMessage('Hello World!');
     });
 
+    let addcomponent = vscode.commands.registerCommand('extension.AddComponent', () => {
+        let name = '';
+
+        //vscode.window.showInputBox({prompt: 'Define a name for the new Component'})
+        //    .then(val => { name = val });
+        
+        
+        //vscode.window.showInformationMessage('Name: ' + name);
+
+        var mkdirp = require('mkdirp');
+        mkdirp('src/client/app/klaas', function(err) { 
+           vscode.window.showInformationMessage(err); 
+        });
+        //vscode.workspace.openTextDocument('/src/client/app/' + name + '/'+ name + 'controller.ts');
+
+        //let editor = vscode.window.activeTextEditor;
+        //editor.document.save();
+
+    });
+
     context.subscriptions.push(disposable);
+    context.subscriptions.push(addcomponent);
 }
 
 // this method is called when your extension is deactivated

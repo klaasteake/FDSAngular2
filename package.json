@@ -11,13 +11,18 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.sayHello"
+        "onCommand:extension.sayHello",
+        "onCommand:extension.AddComponent"
     ],
     "main": "./out/src/extension",
     "contributes": {
         "commands": [{
             "command": "extension.sayHello",
             "title": "Hello World"
+        },
+        {
+            "command": "extension.AddComponent",
+            "title": "Add Component"
         }]
     },
     "scripts": {
